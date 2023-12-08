@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import ChatArea from "./components/ChatArea";
 import ChatPrompt from "./components/ChatPrompt";

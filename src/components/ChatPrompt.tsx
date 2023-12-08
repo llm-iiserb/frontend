@@ -1,7 +1,8 @@
 import * as React from "react";
 import useMessageStore from "../data/messages";
 import useQueryState, { QueryState } from "../data/query";
-import { MdOutlineSend } from "react-icons/md";
+import { BiSolidSend } from "react-icons/bi";
+import { RiLoader5Fill } from "react-icons/ri";
 import generateResponse from "../data/generateResponse";
 
 const ChatPrompt: React.FC = () => {
@@ -42,9 +43,11 @@ const ChatPrompt: React.FC = () => {
             disabled={queryState.qState === QueryState.LOAD}
           >
             {queryState.qState === QueryState.LOAD ? (
-              <div className="bg-gray-400">Loading...</div>
+              <div className="animate-spin">
+                <RiLoader5Fill size={32} />
+              </div>
             ) : (
-              <MdOutlineSend size={32} />
+              <BiSolidSend size={32} />
             )}
           </button>
         </div>

@@ -49,3 +49,21 @@
     }
   }
 }
+
+.ChatBox {
+  animation-name: fade_in;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fade_in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
