@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans|Roboto+Slab");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply min-h-screen m-0 p-0 bg-slate-700 text-white flex justify-center items-center;
+  }
+}
+
+body {
+  font-family: "Noto Sans";
+}
+
+header {
+  font-family: "Roboto Slab";
+}

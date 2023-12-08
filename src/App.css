@@ -1,0 +1,51 @@
+@import "./index.css";
+
+@layer components {
+  .App {
+    @apply flex flex-col gap-2 px-2 w-screen h-screen;
+  }
+
+  header {
+    @apply flex justify-center items-center text-4xl font-black py-2;
+  }
+
+  .ChatBox {
+    @apply rounded px-2 py-3 bg-slate-700 border-l-4;
+
+    &.agent {
+      @apply border-l-blue-600 mb-3;
+    }
+
+    &.user {
+      @apply border-l-teal-400 text-lg;
+    }
+  }
+
+  .ChatArea {
+    @apply flex-grow bg-slate-800 rounded overflow-y-scroll overflow-x-hidden
+    flex flex-col gap-1 border-4 border-slate-800;
+  }
+
+  .ChatPrompt {
+    @apply flex-shrink;
+
+    form {
+      @apply flex items-center py-1 gap-2 w-full;
+    }
+
+    .question {
+      @apply flex-grow;
+      input[type="text"] {
+        @apply bg-slate-800 p-2 rounded-md text-slate-100 text-lg w-full
+        outline-none border-none;
+      }
+    }
+
+    .btn {
+      @apply flex-shrink;
+      button {
+        @apply flex-shrink px-3 py-2 bg-blue-600 rounded;
+      }
+    }
+  }
+}
