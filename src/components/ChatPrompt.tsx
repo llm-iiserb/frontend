@@ -4,7 +4,6 @@ import useQueryState, { QueryState } from "../data/query";
 import { BiSolidSend } from "react-icons/bi";
 import { RiLoader5Fill } from "react-icons/ri";
 import generateResponse from "../data/generateResponse";
-import addNotification from "react-push-notification";
 
 const ChatPrompt: React.FC = () => {
   const messageState = useMessageStore();
@@ -18,12 +17,6 @@ const ChatPrompt: React.FC = () => {
     const answer: string = await generateResponse(question);
     queryState.setSuccess();
     messageState.addResponse(answer);
-    addNotification({
-      title: "Response Generated",
-      subtitle: "by IISERB GPT",
-      message: `${answer.substring(0, 17)}...`,
-      native: true,
-    });
   };
 
   return (

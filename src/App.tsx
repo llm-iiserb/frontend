@@ -1,16 +1,43 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import ChatArea from "./components/ChatArea";
 import ChatPrompt from "./components/ChatPrompt";
+import { auth } from "./firebase";
+
+import NoAuth from "./components/NoAuth";
+import Header from "./components/Header";
 
 function App() {
+  const [showUI, setShowUI] = useState(false);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log(`Welcome, ${user.displayName} [${user.email}]`);
+        setShowUI(true);
+      } else {
+        console.log("No user detected");
+        setShowUI(false);
+      }
+    });
+
+    console.log(auth.currentUser);
+  }, []);
+
   return (
     <>
       <div className="App">
-        <header>IISER GPT</header>
-        <ChatArea />
-        <div className="items-end">
-          <ChatPrompt />
-        </div>
+        {showUI ? (
+          <>
+            <Header />
+            <ChatArea />
+            <div className="items-end">
+              <ChatPrompt />
+            </div>
+          </>
+        ) : (
+          <NoAuth />
+        )}
       </div>
     </>
   );
