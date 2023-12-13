@@ -2,23 +2,7 @@
 
 @layer components {
   .App {
-    @apply flex flex-col gap-2 px-2 w-screen h-screen;
-  }
-
-  header {
-    @apply flex justify-center items-center text-4xl font-black py-2;
-  }
-
-  .ChatBox {
-    @apply rounded px-2 py-3 bg-slate-700 border-l-4;
-
-    &.agent {
-      @apply border-l-blue-600 mb-3;
-    }
-
-    &.user {
-      @apply border-l-teal-400 text-lg;
-    }
+    @apply flex flex-col gap-2 pb-2 lg:gap-4 px-2 md:px-4 lg:px-12 lg:pb-12 w-screen h-screen;
   }
 
   .ChatArea {
@@ -36,7 +20,7 @@
     .question {
       @apply flex-grow;
       input[type="text"] {
-        @apply bg-slate-800 p-2 rounded-md text-slate-100 text-lg w-full
+        @apply bg-slate-800 px-2 py-3 md:px-4 md:py-6 rounded-md text-slate-100 text-lg w-full
         outline-none border-none;
       }
     }
@@ -44,7 +28,8 @@
     .btn {
       @apply flex-shrink;
       button {
-        @apply flex-shrink px-3 py-2 bg-blue-600 rounded;
+        @apply flex-shrink px-3 py-2 md:p-6 bg-blue-600 rounded
+        transition-all duration-200 hover:bg-blue-700;
       }
     }
   }
