@@ -1,11 +1,12 @@
 import axios from "axios";
+import { auth } from "../firebase";
+import { getUserType } from "../utils/userValidation";
 
 const generateResponse = async (question: string) => {
-  // const port = 8100;
   const url = "https://deciding-seahorse-discrete.ngrok-free.app";
-  // const url = "http://localhost:8100";
+  const { displayName: name, email } = auth.currentUser!;
   const res = await axios.get(`${url}/llm`, {
-    params: { question },
+    params: { question, user_type: getUserType(name!, email!) },
     withCredentials: true,
     headers: {
       "ngrok-skip-browser-warning": true,
