@@ -6,14 +6,17 @@ import { auth } from "./firebase";
 
 import NoAuth from "./components/NoAuth";
 import Header from "./components/Header";
+import useMessageStore from "./data/messages";
 
 function App() {
   const [showUI, setShowUI] = useState(false);
+  const resetMessages = useMessageStore(({ reset }) => reset);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         console.log(`Welcome, ${user.displayName} [${user.email}]`);
+        resetMessages();
         setShowUI(true);
       } else {
         console.log("No user detected");

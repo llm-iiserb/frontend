@@ -16,6 +16,7 @@ type MessageStore = {
   updatePrompt: (prompt: string) => void;
   addQuestion: () => void;
   addResponse: (response: string) => void;
+  reset: () => void;
 };
 
 const useMessageStore = create<MessageStore>((set) => ({
@@ -39,6 +40,9 @@ const useMessageStore = create<MessageStore>((set) => ({
       content: response,
     };
     set((state) => ({ messages: [...state.messages, newResponse] }));
+  },
+  reset: () => {
+    set((state) => ({ messages: [], currentPrompt: "" }));
   },
 }));
 
