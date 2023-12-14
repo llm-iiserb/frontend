@@ -42,7 +42,7 @@ const useMessageStore = create<MessageStore>((set) => ({
     set((state) => ({ messages: [...state.messages, newResponse] }));
   },
   reset: () => {
-    set((state) => ({ messages: [], currentPrompt: "" }));
+    set({ messages: [], currentPrompt: "" });
   },
 }));
 
