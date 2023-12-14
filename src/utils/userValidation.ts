@@ -28,7 +28,7 @@ export const userIsFaculty = (name: string): boolean => {
 };
 
 const isEmailIISERB = (email: string) =>
-  /^[a-z]+\d{2}@iiserb\.ac\.in$/gm.test(email);
+  /^[a-z]+\d{0,2}@iiserb\.ac\.in$/gm.test(email);
 
 /**
  * Determines whether the user is STUDENT, FACULTY or EXTERNAL
