@@ -7,13 +7,13 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { UserType, getUserType } from "../utils/userValidation";
 import { PiChalkboardTeacherFill, PiStudentFill } from "react-icons/pi";
-import { BsPersonFill } from "react-icons/bs";
+// import { BsPersonFill } from "react-icons/bs";
 
 const Header: React.FC = () => {
   const userIcons: { [key in UserType]: React.ReactNode } = {
     student: <PiStudentFill />,
     faculty: <PiChalkboardTeacherFill />,
-    external: <BsPersonFill />,
+    // external: <BsPersonFill />,
   };
 
   return (
