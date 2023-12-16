@@ -5,6 +5,17 @@ import { BiSolidSend } from "react-icons/bi";
 import { RiLoader5Fill } from "react-icons/ri";
 import generateResponse from "../data/generateResponse";
 
+const randomQuestions = [
+  "Hostel leave",
+  "Minor requirements",
+  "BIO202 prerequisites",
+  "MOON Lab",
+  "Departmental electives",
+  "Passing tender",
+  "Sports facilities",
+  "Library hours",
+];
+
 const ChatPrompt: React.FC = () => {
   const messageState = useMessageStore();
   const queryState = useQueryState();
@@ -34,13 +45,20 @@ const ChatPrompt: React.FC = () => {
             onChange={(e) => {
               messageState.updatePrompt(e.target.value);
             }}
-            placeholder="Type a message..."
+            placeholder={`Try asking about '${
+              randomQuestions[
+                Math.floor(randomQuestions.length * Math.random())
+              ]
+            }'`}
           />
         </div>
         <div className="btn">
           <button
             type="submit"
-            disabled={queryState.qState === QueryState.LOAD}
+            disabled={
+              queryState.qState === QueryState.LOAD ||
+              messageState.currentPrompt.length === 0
+            }
           >
             {queryState.qState === QueryState.LOAD ? (
               <div className="animate-spin">

@@ -36,6 +36,9 @@ function App() {
             <ChatArea />
             <div className="items-end">
               <ChatPrompt />
+              <div className="disclaimer">
+                IISERB GPT can make mistakes, consider checking important info
+              </div>
             </div>
           </>
         ) : (
