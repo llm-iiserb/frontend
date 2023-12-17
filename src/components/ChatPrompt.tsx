@@ -7,13 +7,13 @@ import generateResponse from "../data/generateResponse";
 
 const randomQuestions = [
   "Hostel leave",
-  "Minor requirements",
-  "BIO202 prerequisites",
+  "IISERB Location",
+  "What is SAC",
   "MOON Lab",
   "Departmental electives",
   "Passing tender",
   "Sports facilities",
-  "Library hours",
+  "Attendance criteria"
 ];
 
 const ChatPrompt: React.FC = () => {
