@@ -1,17 +1,89 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        'serif' : ["Roboto Slab", "Georgia"],
-        'sans' : ["Noto Sans", "Arial"]
-      }
+        serif: ["Roboto Slab", "Georgia"],
+        sans: ["Noto Sans", "Arial"],
+      },
+      colors: {
+        "dark-1": {
+          DEFAULT: "#2d3142",
+          100: "#090a0d",
+          200: "#12141b",
+          300: "#1b1e28",
+          400: "#242735",
+          500: "#2d3142",
+          600: "#4e5472",
+          700: "#71799e",
+          800: "#a0a6bf",
+          900: "#d0d2df",
+        },
+        "dark-2": {
+          DEFAULT: "#3c495f",
+          100: "#0c0e13",
+          200: "#181d26",
+          300: "#232b38",
+          400: "#2f394b",
+          500: "#3c495f",
+          600: "#56698a",
+          700: "#7b8dad",
+          800: "#a7b3c8",
+          900: "#d3d9e4",
+        },
+        "primary-1": {
+          DEFAULT: "#7184ff",
+          100: "#000a49",
+          200: "#001493",
+          300: "#001ddc",
+          400: "#2744ff",
+          500: "#7184ff",
+          600: "#8d9cff",
+          700: "#a9b5ff",
+          800: "#c6cdff",
+          900: "#e2e6ff",
+        },
+        "primary-2": {
+          DEFAULT: "#9bb1ff",
+          100: "#001252",
+          200: "#0023a3",
+          300: "#0035f5",
+          400: "#476fff",
+          500: "#9bb1ff",
+          600: "#adbfff",
+          700: "#c2cfff",
+          800: "#d6dfff",
+          900: "#ebefff",
+        },
+        "secondary-1": {
+          DEFAULT: "#f77894",
+          100: "#450412",
+          200: "#8b0824",
+          300: "#d00c37",
+          400: "#f3335c",
+          500: "#f77894",
+          600: "#f993a9",
+          700: "#faaebf",
+          800: "#fcc9d4",
+          900: "#fde4ea",
+        },
+        "secondary-2": {
+          DEFAULT: "#f896a8",
+          100: "#4b0512",
+          200: "#960a23",
+          300: "#e00e35",
+          400: "#f34b6a",
+          500: "#f896a8",
+          600: "#faabb9",
+          700: "#fbc0cb",
+          800: "#fcd5dc",
+          900: "#feeaee",
+        },
+        "light-1": "#ffffff",
+        "light-2": "#E6E7EE",
+      },
     },
   },
   plugins: [],
-}
-
+};

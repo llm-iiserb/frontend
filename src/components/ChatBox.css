@@ -11,6 +11,6 @@
   }
 
   .ChatBox.agent {
-    @apply border-l-4 border-l-purple-600 mb-2;
+    @apply border-l-4 border-l-violet-700 mb-2;
   }
 }
