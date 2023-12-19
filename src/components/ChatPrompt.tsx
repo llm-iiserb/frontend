@@ -3,7 +3,7 @@ import useMessageStore from "../data/messages";
 import useQueryState, { QueryState } from "../data/query";
 import { BiSolidSend } from "react-icons/bi";
 import { RiLoader5Fill } from "react-icons/ri";
-import generateResponse, { generatePrompt } from "../data/generateResponse";
+import generateResponse from "../data/generateResponse";
 
 const randomQuestions = [
   "Hostel leave",
