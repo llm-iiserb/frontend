@@ -46,7 +46,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ type, content, sources }) => {
                   <SourceBadge
                     filename={source?.source}
                     page={source?.page}
-                    urlPrefix="https://github.com/llm-iiserb/backend/blob/main"
+                    urlPrefix="https://github.com/llm-iiserb/docs/blob/main"
                     icon={icon}
                   />
                 </li>

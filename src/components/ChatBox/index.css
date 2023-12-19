@@ -8,7 +8,8 @@
   }
 
   .ChatBox.user {
-    @apply text-lg text-primary-1-400 font-semibold border-l-4 border-l-primary-1-400;
+    @apply text-lg text-primary-1-900 font-semibold
+    border-l-4 border-l-primary-1-600;
   }
 
   .ChatBox.agent {

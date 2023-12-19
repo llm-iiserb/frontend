@@ -21,7 +21,7 @@ const SourceBadge: React.FC<SourceBadgeProps> = ({
     >
       <div className="icon">{icon}</div>
       <div className="filename">
-        {filename} {page && `@ Pg. ${page}`}
+        {filename} {page! > 0 && `@ Pg. ${page}`}
       </div>
     </a>
   );

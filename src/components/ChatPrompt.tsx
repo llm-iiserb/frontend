@@ -3,7 +3,7 @@ import useMessageStore from "../data/messages";
 import useQueryState, { QueryState } from "../data/query";
 import { BiSolidSend } from "react-icons/bi";
 import { RiLoader5Fill } from "react-icons/ri";
-import generateResponse from "../data/generateResponse";
+import generateResponse, { generatePrompt } from "../data/generateResponse";
 
 const randomQuestions = [
   "Hostel leave",
@@ -21,11 +21,20 @@ const ChatPrompt: React.FC = () => {
   const queryState = useQueryState();
 
   const handleSubmit = async () => {
-    messageState.addQuestion();
-    const question = messageState.currentPrompt;
-    messageState.updatePrompt("");
     queryState.setLoading();
-    const { response, sources } = await generateResponse(question);
+    // const prompt = generatePrompt(
+    //   messageState.messages,
+    //   messageState.currentPrompt,
+    //   2
+    // );
+    const prompt = messageState.currentPrompt;
+    messageState.addQuestion();
+    messageState.updatePrompt("");
+    console.log("Prompt:\n", prompt);
+    const { response, sources } = await generateResponse(
+      prompt,
+      messageState.messages
+    );
     queryState.setSuccess();
     messageState.addResponse(response, sources);
   };
