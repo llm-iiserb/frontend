@@ -12,9 +12,9 @@ const generateResponse = async (question: string) => {
       "ngrok-skip-browser-warning": true,
     },
   });
-  const ans = await res.data;
-  console.log(ans);
-  return ans["response"];
+  const { response, sources } = await res.data;
+  console.log({ response, sources });
+  return { response, sources };
 };
 
 export default generateResponse;

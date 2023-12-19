@@ -5,17 +5,26 @@ export enum MessageType {
   AGENT = "AGENT",
 }
 
-export type Message = {
+export interface Message {
   msgType: MessageType;
   content: string;
+}
+
+export type ResponseSource = {
+  source: string;
+  page?: number;
 };
+
+export interface AgentMessage extends Message {
+  sources: ResponseSource[];
+}
 
 type MessageStore = {
   currentPrompt: string;
   messages: Message[];
   updatePrompt: (prompt: string) => void;
   addQuestion: () => void;
-  addResponse: (response: string) => void;
+  addResponse: (content: string, sources: ResponseSource[]) => void;
   reset: () => void;
 };
 
@@ -34,10 +43,11 @@ const useMessageStore = create<MessageStore>((set) => ({
       return { currentPrompt: "", messages: [...state.messages, newQuestion] };
     });
   },
-  addResponse: (response) => {
-    const newResponse: Message = {
+  addResponse: (content, sources) => {
+    const newResponse: AgentMessage = {
       msgType: MessageType.AGENT,
-      content: response,
+      content,
+      sources,
     };
     set((state) => ({ messages: [...state.messages, newResponse] }));
   },

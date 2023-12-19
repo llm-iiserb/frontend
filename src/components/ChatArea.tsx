@@ -2,6 +2,8 @@ import * as React from "react";
 import ChatBox from "./ChatBox";
 import useMessageStore from "../data/messages";
 
+import { AgentMessage } from "../data/messages";
+
 const ChatArea: React.FC = () => {
   const messages = useMessageStore(({ messages }) => messages);
 
@@ -13,6 +15,7 @@ const ChatArea: React.FC = () => {
             key={index}
             type={message.msgType}
             content={message.content}
+            sources={(message as AgentMessage).sources || []}
           />
         ))
       ) : (

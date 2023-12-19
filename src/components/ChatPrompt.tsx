@@ -25,9 +25,9 @@ const ChatPrompt: React.FC = () => {
     const question = messageState.currentPrompt;
     messageState.updatePrompt("");
     queryState.setLoading();
-    const answer: string = await generateResponse(question);
+    const { response, sources } = await generateResponse(question);
     queryState.setSuccess();
-    messageState.addResponse(answer);
+    messageState.addResponse(response, sources);
   };
 
   return (

@@ -2,7 +2,7 @@
 
 @layer components {
   .App {
-    @apply flex flex-col gap-2 pb-2 lg:gap-4 px-2 md:px-4 lg:px-12 lg:pb-12 w-screen h-screen;
+    @apply flex flex-col gap-1 md:gap-2 pb-2 lg:gap-4 px-2 md:px-4 lg:px-12 lg:pb-12 w-screen h-screen;
 
     .disclaimer {
       @apply flex justify-center pt-0 text-xs scale-75 md:scale-90 lg:scale-100 opacity-40;
@@ -10,8 +10,8 @@
   }
 
   .ChatArea {
-    @apply flex-grow bg-slate-800 rounded overflow-y-scroll overflow-x-hidden
-    flex flex-col gap-2 border-4 border-slate-800 p-0 md:p-2;
+    @apply flex-grow bg-dark-1-300 rounded overflow-y-scroll overflow-x-hidden
+    flex flex-col gap-2 px-1.5 py-2 md:p-2;
   }
 
   .ChatPrompt {
@@ -24,7 +24,7 @@
     .question {
       @apply flex-grow;
       input[type="text"] {
-        @apply bg-slate-800 px-2 py-3 md:px-4 md:py-6 rounded-md text-slate-100 text-lg w-full
+        @apply bg-dark-1-300 px-2 py-3 md:px-4 md:py-6 rounded-md text-light-1 text-lg w-full
         outline-none border-none;
       }
     }
@@ -32,11 +32,11 @@
     .btn {
       @apply flex-shrink;
       button {
-        @apply flex-shrink px-3 py-2 md:p-6 bg-blue-600 rounded
-        transition-all duration-200 hover:bg-blue-700 border border-transparent;
+        @apply flex-shrink px-3 py-2 md:p-6 bg-primary-2-400 rounded
+        transition-all duration-200 hover:bg-primary-1-400 border border-transparent;
 
         &:disabled {
-          @apply saturate-50 bg-transparent border border-blue-600 text-blue-600;
+          @apply saturate-50 bg-transparent border border-primary-1-600 text-primary-1-600;
         }
       }
     }
