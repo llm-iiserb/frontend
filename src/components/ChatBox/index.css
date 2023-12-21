@@ -5,6 +5,20 @@
     @apply text-justify px-2 md:px-4 lg:px-6 py-3 md:py-6
         bg-dark-1-500 font-sans text-white rounded
         flex flex-col gap-4;
+
+    .content {
+      ul {
+        @apply list-disc pl-8;
+      }
+
+      ol {
+        @apply list-decimal pl-8;
+      }
+
+      a {
+        @apply border-b-[1px] hover:border-b-2 text-secondary-1-400 font-semibold transition-all duration-200;
+      }
+    }
   }
 
   .ChatBox.user {
