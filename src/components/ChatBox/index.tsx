@@ -42,7 +42,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ type, content, sources }) => {
                 </div>
               );
               return (
-                <li key={`${source?.source}${source?.page}`}>
+                <li key={source.id}>
                   <SourceBadge
                     filename={source?.source}
                     page={source?.page}

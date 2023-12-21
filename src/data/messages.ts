@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { create } from "zustand";
 
 export enum MessageType {
@@ -6,11 +7,13 @@ export enum MessageType {
 }
 
 export interface Message {
+  id: string;
   msgType: MessageType;
   content: string;
 }
 
 export type ResponseSource = {
+  id?: string;
   source: string;
   page?: number;
 };
@@ -37,6 +40,7 @@ const useMessageStore = create<MessageStore>((set) => ({
   addQuestion: () => {
     set((state) => {
       const newQuestion: Message = {
+        id: nanoid(7),
         msgType: MessageType.USER,
         content: state.currentPrompt,
       };
@@ -45,6 +49,7 @@ const useMessageStore = create<MessageStore>((set) => ({
   },
   addResponse: (content, sources) => {
     const newResponse: AgentMessage = {
+      id: nanoid(7),
       msgType: MessageType.AGENT,
       content,
       sources,

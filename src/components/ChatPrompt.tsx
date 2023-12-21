@@ -4,6 +4,7 @@ import useQueryState, { QueryState } from "../data/query";
 import { BiSolidSend } from "react-icons/bi";
 import { RiLoader5Fill } from "react-icons/ri";
 import generateResponse from "../data/generateResponse";
+import { nanoid } from "nanoid";
 
 const randomQuestions = [
   "Hostel leave",
@@ -36,7 +37,10 @@ const ChatPrompt: React.FC = () => {
       messageState.messages
     );
     queryState.setSuccess();
-    messageState.addResponse(response, sources);
+    messageState.addResponse(
+      response,
+      sources.map((source) => ({ id: nanoid(7), ...source }))
+    );
   };
 
   return (

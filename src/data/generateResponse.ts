@@ -1,44 +1,40 @@
 import axios from "axios";
 import { auth } from "../firebase";
 import { getUserType } from "../utils/userValidation";
-import { Message, MessageType } from "./messages";
+import { Message, ResponseSource } from "./messages";
 
-export const generatePrompt = (
-  context: Message[],
+const generateResponse = async (
   question: string,
-  nLast: number
-): string => {
-  const contextString = context
-    .slice(-nLast * 2)
-    // .map(
-    //   (v) =>
-    //     `### Prev ${
-    //       v.msgType === MessageType.USER ? "Question(use as context)" : "Answer"
-    //     }:\n${v.content}`
-    // )
-    .map((v) => `### Q:\n${v.msgType === MessageType.USER ? v.content : ""}`)
-    .join("\n\n");
-  const prompt = `${contextString}\n\n### New Query(generate answer): ${question}`;
-  return prompt;
-};
-
-const generateResponse = async (question: string, messages: Message[]) => {
+  messages: Message[]
+): Promise<{ response: string; sources: ResponseSource[] }> => {
   const url = "https://deciding-seahorse-discrete.ngrok-free.app";
   const { displayName: name, email } = auth.currentUser!;
-  const res = await axios.get(`${url}/llm`, {
-    params: {
+  var history: { question: string; answer: string }[] = [];
+  for (var i = 0; i < messages.length; i++) {
+    history = [
+      ...history,
+      {
+        question: messages[i].content,
+        answer: messages[++i].content,
+      },
+    ];
+  }
+
+  const res = await axios.post(
+    `${url}/llm`,
+    {
       question,
       user_type: getUserType(name!, email!),
-      prev_question: messages.at(-2)?.content || "",
-      prev_answer: messages.at(-1)?.content || "",
+      history,
     },
-    withCredentials: true,
-    headers: {
-      "ngrok-skip-browser-warning": true,
-    },
-  });
+    {
+      headers: {
+        "ngrok-skip-browser-warning": "true",
+      },
+    }
+  );
   const { response, sources } = await res.data;
-  console.log({ response, sources });
+  console.table({ response, sources });
   return { response, sources };
 };
 
