@@ -22,6 +22,7 @@ const ChatArea: React.FC = () => {
               type={message.msgType}
               content={message.content}
               sources={(message as AgentMessage).sources || []}
+              id={message.id}
             />
           ))}
           <div ref={myRef}></div>

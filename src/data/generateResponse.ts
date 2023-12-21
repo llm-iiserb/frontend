@@ -6,7 +6,7 @@ import { Message, ResponseSource } from "./messages";
 const generateResponse = async (
   question: string,
   messages: Message[]
-): Promise<{ response: string; sources: ResponseSource[] }> => {
+): Promise<{ chatId: string; response: string; sources: ResponseSource[] }> => {
   const url = "https://deciding-seahorse-discrete.ngrok-free.app";
   const { displayName: name, email } = auth.currentUser!;
   var history: { question: string; answer: string }[] = [];
@@ -34,9 +34,9 @@ const generateResponse = async (
       withCredentials: true,
     }
   );
-  const { response, sources } = await res.data;
-  console.table({ response, sources });
-  return { response, sources };
+  const { chat_id: chatId, response, sources } = await res.data;
+  console.table({ chatId, response, sources });
+  return { chatId, response, sources };
 };
 
 export default generateResponse;
