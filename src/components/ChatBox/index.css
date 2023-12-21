@@ -19,6 +19,24 @@
         @apply border-b-[1px] hover:border-b-2 text-secondary-1-400 font-semibold transition-all duration-200;
       }
     }
+    .Feedback {
+      ul {
+        @apply flex justify-end lg:justify-start gap-2 lg:gap-3;
+
+        li {
+          @apply p-0;
+
+          button {
+            @apply p-3 bg-dark-1-400 rounded-full text-sm lg:text-lg
+            transition-all duration-300 border-2 border-transparent;
+
+            &.active {
+              @apply text-secondary-1-300 border-secondary-1-300;
+            }
+          }
+        }
+      }
+    }
   }
 
   .ChatBox.user {

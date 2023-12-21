@@ -32,12 +32,13 @@ const ChatPrompt: React.FC = () => {
     messageState.addQuestion();
     messageState.updatePrompt("");
     console.log("Prompt:\n", prompt);
-    const { response, sources } = await generateResponse(
+    const { chatId, response, sources } = await generateResponse(
       prompt,
       messageState.messages
     );
     queryState.setSuccess();
     messageState.addResponse(
+      chatId,
       response,
       sources.map((source) => ({ id: nanoid(7), ...source }))
     );

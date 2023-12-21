@@ -27,7 +27,11 @@ type MessageStore = {
   messages: Message[];
   updatePrompt: (prompt: string) => void;
   addQuestion: () => void;
-  addResponse: (content: string, sources: ResponseSource[]) => void;
+  addResponse: (
+    chatId: string,
+    content: string,
+    sources: ResponseSource[]
+  ) => void;
   reset: () => void;
 };
 
@@ -47,9 +51,9 @@ const useMessageStore = create<MessageStore>((set) => ({
       return { currentPrompt: "", messages: [...state.messages, newQuestion] };
     });
   },
-  addResponse: (content, sources) => {
+  addResponse: (chatId, content, sources) => {
     const newResponse: AgentMessage = {
-      id: nanoid(7),
+      id: chatId,
       msgType: MessageType.AGENT,
       content,
       sources,
