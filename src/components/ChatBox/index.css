@@ -1,0 +1,48 @@
+@import "/src/index.css";
+
+@layer components {
+  .ChatBox {
+    @apply text-justify px-2 md:px-4 lg:px-6 py-3 md:py-6
+        bg-dark-1-500 font-sans text-white rounded
+        flex flex-col gap-4;
+  }
+
+  .ChatBox.user {
+    @apply text-lg text-primary-1-900 font-semibold
+    border-l-4 border-l-primary-1-600;
+  }
+
+  .ChatBox.agent {
+    @apply border-l-4 border-l-secondary-1-500 mb-2;
+
+    .sources {
+      @apply px-4 py-3 flex flex-col justify-center gap-2 rounded bg-dark-1-400;
+
+      .title {
+        @apply hidden text-left text-lg md:text-xl lg:text-2xl font-serif text-light-1 font-bold;
+      }
+
+      ul.badges {
+        @apply grid grid-cols-1 px-3 md:grid-cols-2 lg:grid-cols-3 place-items-start md:place-items-center gap-3;
+
+        li {
+          @apply flex justify-start items-center p-0;
+
+          a {
+            @apply px-3 py-2 rounded-full border-dark-1-700
+            flex gap-1 items-center
+            bg-dark-1-500 hover:bg-dark-1-600 transition-all duration-200;
+
+            .icon {
+              @apply text-lg;
+            }
+
+            .filename {
+              @apply text-xs text-light-2 font-mono;
+            }
+          }
+        }
+      }
+    }
+  }
+}

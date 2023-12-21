@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { create } from "zustand";
 
 export enum MessageType {
@@ -5,17 +6,28 @@ export enum MessageType {
   AGENT = "AGENT",
 }
 
-export type Message = {
+export interface Message {
+  id: string;
   msgType: MessageType;
   content: string;
+}
+
+export type ResponseSource = {
+  id?: string;
+  source: string;
+  page?: number;
 };
+
+export interface AgentMessage extends Message {
+  sources: ResponseSource[];
+}
 
 type MessageStore = {
   currentPrompt: string;
   messages: Message[];
   updatePrompt: (prompt: string) => void;
   addQuestion: () => void;
-  addResponse: (response: string) => void;
+  addResponse: (content: string, sources: ResponseSource[]) => void;
   reset: () => void;
 };
 
@@ -28,16 +40,19 @@ const useMessageStore = create<MessageStore>((set) => ({
   addQuestion: () => {
     set((state) => {
       const newQuestion: Message = {
+        id: nanoid(7),
         msgType: MessageType.USER,
         content: state.currentPrompt,
       };
       return { currentPrompt: "", messages: [...state.messages, newQuestion] };
     });
   },
-  addResponse: (response) => {
-    const newResponse: Message = {
+  addResponse: (content, sources) => {
+    const newResponse: AgentMessage = {
+      id: nanoid(7),
       msgType: MessageType.AGENT,
-      content: response,
+      content,
+      sources,
     };
     set((state) => ({ messages: [...state.messages, newResponse] }));
   },

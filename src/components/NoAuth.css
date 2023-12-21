@@ -6,14 +6,14 @@
   }
 
   .title {
-    @apply font-serif text-5xl font-bold;
+    @apply font-serif text-4xl text-center md:text-left font-bold;
   }
 
   .NoAuth > button.btn__no_auth {
-    @apply flex justify-evenly items-center text-3xl sm:text-xl gap-4
-    border-blue-600 text-blue-600 border-2 rounded-lg
+    @apply flex justify-evenly items-center md:text-3xl text-xl gap-4
+    border-primary-1-500 text-primary-1-500 border-2 rounded-lg
     px-6 py-4 transition-all duration-200
-    hover:bg-blue-600 hover:text-white hover:scale-105
+    hover:bg-primary-1-500 hover:text-light-1 hover:scale-105
     hover:shadow-lg;
   }
 

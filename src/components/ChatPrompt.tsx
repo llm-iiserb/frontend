@@ -4,6 +4,7 @@ import useQueryState, { QueryState } from "../data/query";
 import { BiSolidSend } from "react-icons/bi";
 import { RiLoader5Fill } from "react-icons/ri";
 import generateResponse from "../data/generateResponse";
+import { nanoid } from "nanoid";
 
 const randomQuestions = [
   "Hostel leave",
@@ -13,7 +14,7 @@ const randomQuestions = [
   "Departmental electives",
   "Passing tender",
   "Sports facilities",
-  "Attendance criteria"
+  "Attendance criteria",
 ];
 
 const ChatPrompt: React.FC = () => {
@@ -21,13 +22,25 @@ const ChatPrompt: React.FC = () => {
   const queryState = useQueryState();
 
   const handleSubmit = async () => {
-    messageState.addQuestion();
-    const question = messageState.currentPrompt;
-    messageState.updatePrompt("");
     queryState.setLoading();
-    const answer: string = await generateResponse(question);
+    // const prompt = generatePrompt(
+    //   messageState.messages,
+    //   messageState.currentPrompt,
+    //   2
+    // );
+    const prompt = messageState.currentPrompt;
+    messageState.addQuestion();
+    messageState.updatePrompt("");
+    console.log("Prompt:\n", prompt);
+    const { response, sources } = await generateResponse(
+      prompt,
+      messageState.messages
+    );
     queryState.setSuccess();
-    messageState.addResponse(answer);
+    messageState.addResponse(
+      response,
+      sources.map((source) => ({ id: nanoid(7), ...source }))
+    );
   };
 
   return (

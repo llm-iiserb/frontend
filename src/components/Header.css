@@ -2,7 +2,7 @@
 
 @layer components {
   header.Header {
-    @apply flex items-center py-2 md:py-4 border-b-2 border-b-slate-600;
+    @apply flex items-center py-2 md:py-4 border-b-2 bg-dark-1-400 border-dark-1-500;
   }
 
   .brand {
