@@ -17,11 +17,9 @@ const ChatBox: React.FC<ChatBoxProps> = ({ type, content, sources }) => {
   return (
     <div className={`ChatBox ${type.toLowerCase()}`}>
       <div className="content">
-        <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-          {content
-            ? content.replace(/\\n/gi, "\n").replace(/\n/gi, "<br/>")
-            : "Loading..."}
-        </Markdown>
+      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+        {content}
+      </Markdown>
       </div>
       {type === MessageType.AGENT && (
         <div className="sources">
