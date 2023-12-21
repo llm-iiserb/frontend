@@ -29,8 +29,9 @@ const generateResponse = async (
     },
     {
       headers: {
-        "ngrok-skip-browser-warning": "true",
+        "ngrok-skip-browser-warning": true,
       },
+      withCredentials: true,
     }
   );
   const { response, sources } = await res.data;
