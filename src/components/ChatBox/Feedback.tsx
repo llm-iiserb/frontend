@@ -23,7 +23,7 @@ const Feedback: React.FC<FeedbackProps> = ({ chatId }) => {
         <li>
           <button
             id="dope"
-            className={feedback === 1 ? "active" : ""}
+            className={feedback === 1 ? "positive" : ""}
             onClick={(e) => {
               e.preventDefault();
               handleClick(1);
@@ -35,7 +35,7 @@ const Feedback: React.FC<FeedbackProps> = ({ chatId }) => {
         <li>
           <button
             id="nope"
-            className={feedback === -1 ? "active" : ""}
+            className={feedback === -1 ? "negative" : ""}
             onClick={(e) => {
               e.preventDefault();
               handleClick(-1);
