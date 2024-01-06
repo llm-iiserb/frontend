@@ -5,7 +5,12 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import "./index.css";
 import SourceBadge from "./SourceBadge";
-import { BsFileFill, BsFilePdfFill, BsMarkdownFill } from "react-icons/bs";
+import {
+  BsFileFill,
+  BsFilePdfFill,
+  BsMarkdownFill,
+  BsExclamationTriangleFill,
+} from "react-icons/bs";
 import Feedback from "./Feedback";
 
 type ChatBoxProps = {
@@ -25,6 +30,15 @@ const ChatBox: React.FC<ChatBoxProps> = ({ type, content, sources, id }) => {
       </div>
       {type === MessageType.AGENT && (
         <>
+          <div className="text-dark-1-800 p-2 md:p-4 rounded-lg text-sm bg-dark-1-400 flex items-center gap-2 md:gap-4">
+            <span className="text-2xl md:text-3xl text-secondary-2-400 drop-shadow-md">
+              <BsExclamationTriangleFill />
+            </span>
+            <span>
+              Answers may contain incorrect information, please refer to
+              following documents before making important decisions.
+            </span>
+          </div>
           <div className="sources">
             <div className="title">Sources</div>
             <ul className="badges">
