@@ -38,6 +38,7 @@ function App() {
               <ChatPrompt />
               <div className="disclaimer">
                 IISERB GPT can make mistakes, consider checking important info
+                before making decisions.
               </div>
             </div>
           </>

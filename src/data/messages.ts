@@ -16,6 +16,7 @@ export type ResponseSource = {
   id?: string;
   source: string;
   page?: number;
+  chunk_text?: string;
 };
 
 export interface AgentMessage extends Message {

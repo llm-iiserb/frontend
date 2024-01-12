@@ -36,6 +36,7 @@ const generateResponse = async (
   );
   const { chat_id: chatId, response, sources } = await res.data;
   console.table({ chatId, response, sources });
+  console.log("sources", sources);
   return { chatId, response, sources };
 };
 

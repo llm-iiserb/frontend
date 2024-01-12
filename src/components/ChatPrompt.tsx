@@ -8,9 +8,9 @@ import { nanoid } from "nanoid";
 
 const randomQuestions = [
   "Hostel leave",
-  "IISERB Location",
-  "What is SAC",
-  "MOON Lab",
+  "IISERB Mission",
+  "Hostel Rules",
+  "Overload Courses",
   "Departmental electives",
   "Passing tender",
   "Sports facilities",
