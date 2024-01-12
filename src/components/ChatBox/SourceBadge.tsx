@@ -12,7 +12,7 @@ type SourceBadgeProps = {
 const SourceBadge: React.FC<SourceBadgeProps> = ({
   filename,
   page,
-  urlPrefix,
+  //urlPrefix,
   icon,
   chunk_text,
 }) => {
