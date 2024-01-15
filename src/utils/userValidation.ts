@@ -1,8 +1,8 @@
 export enum UserType {
   STUDENT = "student",
-  FACULTY = "faculty",
+  FACULTY = "student",
   // TODO Change this to "external" in production
-  EXTERNAL = "faculty",
+  EXTERNAL = "student",
 }
 
 /**
