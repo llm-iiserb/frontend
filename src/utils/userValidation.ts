@@ -1,6 +1,6 @@
 export enum UserType {
   STUDENT = "student",
-  FACULTY = "student",
+  FACULTY = "faculty",
   // TODO Change this to "external" in production
   EXTERNAL = "student",
 }
@@ -12,10 +12,11 @@ export enum UserType {
  * @param email The user's email
  * @returns Whether the user is a student
  */
+/*
 export const userIsStudent = (name: string): boolean => {
   return /\D+\d{5,7}$/.test(name);
 };
-
+*/
 /**
  * Determines whether the current user is a faculty
  *
@@ -23,11 +24,15 @@ export const userIsStudent = (name: string): boolean => {
  * @param email The user's email
  * @returns Whether the user is a faculty
  */
+
+/*
 export const userIsFaculty = (name: string): boolean => {
   return /^\D+$/.test(name);
 };
-
+*/
+/*
 const isEmailIISERB = (email: string) =>
+  
   /^[a-z]+\d{0,2}@iiserb\.ac\.in$/gm.test(email);
 
 /**
@@ -37,7 +42,15 @@ const isEmailIISERB = (email: string) =>
  * @param email email of user
  * @returns UserType of user
  */
-export const getUserType = (name: string, email: string): UserType =>
+/*name: string, email: string */
+export const getUserType = (name: string, email: string): UserType =>{
+  if(name.includes('student'))
+    return UserType.STUDENT
+  else if(email.includes('iiserb'))
+    return UserType.STUDENT
+  else
+    return UserType.STUDENT
+}/*
   isEmailIISERB(email)
     ? userIsStudent(name)
       ? UserType.STUDENT
@@ -45,3 +58,4 @@ export const getUserType = (name: string, email: string): UserType =>
       ? UserType.FACULTY
       : UserType.EXTERNAL
     : UserType.EXTERNAL;
+*/

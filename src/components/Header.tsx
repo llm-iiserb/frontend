@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         <span className="icon">
           <img src={Logo} alt="logo" />
         </span>
-        <span className="name">Ask</span>
+        <span className="name">Student Search Assistant</span>
       </div>
       <nav>
         {auth.currentUser && (
