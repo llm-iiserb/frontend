@@ -31,12 +31,12 @@ const ChatArea: React.FC = () => {
         <div className="text-gray-500">
           Current Documents:
           {/* create a list CSS styled with bullet points*/}
-          <ul style={{ listStyleType: "disc", marginLeft: "1rem" }}>
+          <ul style={{ listStyleType: "square", marginLeft: "1rem" }}>
             <li> Student Manual (DoSA Office, 2023) </li>
             <li> Academic Manual (DoAA Office, 2020) </li>
             <li> PG Manual (DoAA Office, 2020) </li>
             <li> UG Manual (DoAA Office, 2020) </li>
-            <li> Course Contents (Natural Sciences) (DoAA Office, 2013) </li>
+            <li> Course Contents of Natural Sciences (DoAA Office, 2013) </li>
           </ul>
         </div>
       )}
