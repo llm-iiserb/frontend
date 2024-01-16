@@ -30,8 +30,8 @@ const ChatArea: React.FC = () => {
       ) : (
         <div className="text-gray-500">
           Current Documents:
-          {/* create a list */}
-          <ul>
+          {/* create a list CSS styled with bullet points*/}
+          <ul style={{ listStyleType: "disc", marginLeft: "1rem" }}>
             <li> Student Manual (DoSA Office, 2023) </li>
             <li> Academic Manual (DoAA Office, 2020) </li>
             <li> PG Manual (DoAA Office, 2020) </li>
