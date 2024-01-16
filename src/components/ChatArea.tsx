@@ -29,7 +29,7 @@ const ChatArea: React.FC = () => {
         </>
       ) : (
         <div className="text-gray-500">
-          Current Documents:
+          All answers are sourced from:
           {/* create a list CSS styled with bullet points*/}
           <ul style={{ listStyleType: "square", marginLeft: "1rem" }}>
             <li> Student Manual (DoSA Office, 2023) </li>
