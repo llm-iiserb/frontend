@@ -22,14 +22,23 @@ const ChatArea: React.FC = () => {
               type={message.msgType}
               content={message.content}
               sources={(message as AgentMessage).sources || []}
-              
               id={message.id}
             />
           ))}
           <div ref={myRef}></div>
         </>
       ) : (
-        <div className="text-gray-500">The chat history appears here</div>
+        <div className="text-gray-500">
+          Current Documents:
+          {/* create a list */}
+          <ul>
+            <li> Student Manual (DoSA Office, 2023) </li>
+            <li> Academic Manual (DoAA Office, 2020) </li>
+            <li> PG Manual (DoAA Office, 2020) </li>
+            <li> UG Manual (DoAA Office, 2020) </li>
+            <li> Course Contents (Natural Sciences) (DoAA Office, 2013) </li>
+          </ul>
+        </div>
       )}
     </div>
   );
