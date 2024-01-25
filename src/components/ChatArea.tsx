@@ -37,6 +37,8 @@ const ChatArea: React.FC = () => {
             <li> PG Manual (DoAA Office, 2020) </li>
             <li> UG Manual (DoAA Office, 2020) </li>
             <li> Course Contents of Natural Sciences (DoAA Office, 2013) </li>
+            <li> Internet Connectivity FAQ (Computer Centre, 2023) </li>
+            <li> Internet Connectivity Manual (Computer Centre, 2023) </li>
           </ul>
         </div>
       )}
