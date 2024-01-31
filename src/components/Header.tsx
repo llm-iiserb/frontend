@@ -42,6 +42,7 @@ const Header: React.FC = () => {
               className="user__img"
               src={auth.currentUser.photoURL || ""}
               alt={auth.currentUser.displayName || ""}
+              referrerPolicy="no-referrer"
             />
           </>
         )}
