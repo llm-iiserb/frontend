@@ -52,22 +52,22 @@
     @apply border-l-4 border-l-secondary-1-500 mb-2;
 
     .sources {
-      @apply px-4 py-3 flex flex-col justify-center gap-2 rounded bg-dark-1-400;
+      @apply p-1 md:p-3 flex flex-col justify-center gap-3 rounded bg-dark-1-400;
 
       .title {
         @apply hidden text-left text-lg md:text-xl lg:text-2xl font-serif text-light-1 font-bold;
       }
 
       ul.badges {
-        @apply grid grid-cols-1 px-3 md:grid-cols-2 lg:grid-cols-3 place-items-start md:place-items-center gap-3;
+        @apply grid grid-cols-1 px-0 md:px-3 md:grid-cols-2 lg:grid-cols-3 place-items-start md:place-items-center gap-1 md:gap-2 lg:gap-3;
 
         li {
-          @apply flex justify-start items-center p-0;
+          @apply flex flex-col justify-start items-center p-0;
 
-          a {
-            @apply px-3 py-2 rounded-full border-dark-1-700
-            flex gap-1 items-center
-            bg-dark-1-500 hover:bg-dark-1-600 transition-all duration-200;
+          .SourceBadge {
+            @apply px-2 py-3 rounded-md border-dark-1-700
+            flex flex-col gap-1 items-center
+            bg-dark-1-500 hover:bg-dark-1-200 transition-all duration-200;
 
             .icon {
               @apply text-lg;
@@ -75,6 +75,16 @@
 
             .filename {
               @apply text-xs text-light-2 font-mono;
+            }
+
+            .chunk {
+              @apply text-sm h-24 overflow-y-scroll text-light-1 font-mono p-2 my-3 rounded border-[0px]  transition-all duration-200;
+              &.show{
+                @apply h-32 opacity-100 text-opacity-100 ;
+              }
+              &.hide{
+                @apply h-0 p-0 m-0 opacity-0 text-opacity-0;
+              }
             }
           }
         }

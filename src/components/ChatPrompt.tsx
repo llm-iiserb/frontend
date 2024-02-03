@@ -8,12 +8,12 @@ import { nanoid } from "nanoid";
 
 const randomQuestions = [
   "Hostel leave",
-  "IISERB Location",
-  "What is SAC",
-  "MOON Lab",
+  "FAAC Scheme for conference travel grant",
+  "Hostel Rules",
+  "How many Overload Courses can I take?",
   "Departmental electives",
-  "Passing tender",
-  "Sports facilities",
+  "Substituting failed courses",
+  "The DoSA/DoAA/DUGC/DPGC",
   "Attendance criteria",
 ];
 
