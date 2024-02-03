@@ -27,8 +27,8 @@ export const userIsFaculty = (name: string): boolean => {
   return /^\D+$/.test(name);
 };
 
-const isEmailIISERB = (email: string) =>
-  /^[a-z]+\d{0,2}@iiserb\.ac\.in$/gm.test(email);
+// const isEmailIISERB = (email: string) =>
+//   /^[a-z]+\d{0,2}@iiserb\.ac\.in$/gm.test(email);
 
 /**
  * Determines whether the user is STUDENT, FACULTY or EXTERNAL
@@ -37,11 +37,15 @@ const isEmailIISERB = (email: string) =>
  * @param email email of user
  * @returns UserType of user
  */
-export const getUserType = (name: string, email: string): UserType =>
-  isEmailIISERB(email)
-    ? userIsStudent(name)
-      ? UserType.STUDENT
-      : userIsFaculty(name)
-      ? UserType.FACULTY
-      : UserType.EXTERNAL
-    : UserType.EXTERNAL;
+export const getUserType = (name: string, email: string): UserType => 
+{ console.log("name",name, "email",email);
+
+  return UserType.STUDENT;
+}
+  //isEmailIISERB(email)
+    // ? userIsStudent(name)
+    //   ? UserType.STUDENT
+    //   : userIsFaculty(name)
+    //   ? UserType.FACULTY
+    //   : UserType.STUDENT
+    // : UserType.EXTERNAL;
