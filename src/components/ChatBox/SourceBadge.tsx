@@ -1,5 +1,4 @@
 import * as React from "react";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 type SourceBadgeProps = {
   filename: string;
