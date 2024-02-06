@@ -11,6 +11,7 @@ import useServerStatus from "./data/health";
 import isServerActive from "./utils/health";
 
 import ServerError from "./components/ServerError";
+import { HttpStatusCode } from "axios";
 
 const App: React.FC = () => {
   const [showUI, setShowUI] = useState(false);
@@ -31,11 +32,24 @@ const App: React.FC = () => {
 
     // Checks for server status every 10s
     const healthChecker = setInterval(async () => {
-      const active = await isServerActive();
-      console.log(`Server active = ${active}`);
-      serverStatus.setActive(active);
-      // serverStatus.setActive(false);
-    }, 10000);
+      // const active = await isServerActive();
+      // console.log(`Server active = ${active}`);
+      // serverStatus.setActive(active || false);
+      // // serverStatus.setActive(false);
+      const isActive = isServerActive();
+      isActive
+        .then((res) => {
+          if (res.status === HttpStatusCode.Ok) {
+            serverStatus.setActive(true);
+          } else {
+            serverStatus.setActive(false);
+          }
+        })
+        .catch(() => {
+          console.error(`Error checking server status`);
+          serverStatus.setActive(false);
+        });
+    }, 1000);
 
     console.log(auth.currentUser);
 

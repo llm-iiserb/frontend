@@ -1,5 +1,5 @@
 import * as React from "react";
-import Dino from "../../public/img/server-error-dino.png";
+import Dino from "../../public/img/server-cat.gif";
 
 type ServerDownMessage = {
   title: string;
@@ -9,37 +9,41 @@ type ServerDownMessage = {
 const ServerError: React.FC = () => {
   const serverDownMessages: ServerDownMessage[] = [
     {
-      title: "Dino Timeout",
-      subtitle: "Our T-Rex Admin Needs a Java Break!",
+      title: "Server Error",
+      subtitle: "Please Try Again Later",
     },
-    {
-      title: "Server Rex-tinction",
-      subtitle: "Don't Panic, Our Brontos are Fixing the Glitch!",
-    },
-    {
-      title: "Jurassic Server Snooze",
-      subtitle: "Hang Tight, Velociraptor IT Team on the Chase!",
-    },
-    {
-      title: "Coding Catastrophe",
-      subtitle: "Our Pixel Raptors Are Roaring for a Restart!",
-    },
-    {
-      title: "Glitch-o-saurus",
-      subtitle: "Hold onto Your Fossils, We're Fixing the Flux!",
-    },
-    {
-      title: "Tech Triassic Timeout",
-      subtitle: "Don't Worry, Our Cybernetic Stegos Are on the Job!",
-    },
-    {
-      title: "Byte-sized Extinction",
-      subtitle: "Just a Dino Restart Away from Cyber Normalcy!",
-    },
-    {
-      title: "Mesozoic Malfunction",
-      subtitle: "Our Dilophosaurus Engineers Working on a Fix!",
-    },
+    // {
+    //   title: "Dino Timeout",
+    //   subtitle: "Our T-Rex Admin Needs a Java Break!",
+    // },
+    // {
+    //   title: "Server Rex-tinction",
+    //   subtitle: "Don't Panic, Our Brontos are Fixing the Glitch!",
+    // },
+    // {
+    //   title: "Jurassic Server Snooze",
+    //   subtitle: "Hang Tight, Velociraptor IT Team on the Chase!",
+    // },
+    // {
+    //   title: "Coding Catastrophe",
+    //   subtitle: "Our Pixel Raptors Are Roaring for a Restart!",
+    // },
+    // {
+    //   title: "Glitch-o-saurus",
+    //   subtitle: "Hold onto Your Fossils, We're Fixing the Flux!",
+    // },
+    // {
+    //   title: "Tech Triassic Timeout",
+    //   subtitle: "Don't Worry, Our Cybernetic Stegos Are on the Job!",
+    // },
+    // {
+    //   title: "Byte-sized Extinction",
+    //   subtitle: "Just a Dino Restart Away from Cyber Normalcy!",
+    // },
+    // {
+    //   title: "Mesozoic Malfunction",
+    //   subtitle: "Our Dilophosaurus Engineers Working on a Fix!",
+    // },
   ];
 
   const getRandomServerDownMessage = (): ServerDownMessage => {

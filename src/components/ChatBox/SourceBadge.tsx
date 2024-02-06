@@ -11,9 +11,11 @@ type SourceBadgeProps = {
 
 const SourceBadge: React.FC<SourceBadgeProps> = ({
   filename,
+  // @ts-ignore
   page,
   //urlPrefix,
   icon,
+  // @ts-ignore
   chunk_text,
 }) => {
   const [show, setShow] = React.useState(false);
@@ -26,21 +28,11 @@ const SourceBadge: React.FC<SourceBadgeProps> = ({
       }}
     >
       <div className="flex justify-between items-center gap-2">
-        <div className="flex pt-2 items-center gap-1">
+        <div className="flex items-center gap-1">
           <div className="icon">{icon}</div>
-          <div className="filename">
-            {filename} {page! > 0 && `@ Pg. ${page}`}
-          </div>
+          <div className="filename">{filename}</div>
         </div>
-        <span
-          className={`transition-all duration-200 ${
-            show ? "rotate-180" : "rotate-0"
-          }`}
-        >
-          <MdOutlineKeyboardArrowDown size={24} />
-        </span>
       </div>
-      <div className={`chunk ${show ? "show" : "hide"}`}>{chunk_text}</div>
     </div>
   );
 };

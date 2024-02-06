@@ -2,7 +2,7 @@
 
 @layer components {
   .App {
-    @apply flex flex-col gap-1 md:gap-2 pb-2 lg:gap-4 px-2 md:px-4 lg:px-12 lg:pb-12 w-screen h-screen;
+    @apply flex flex-col gap-1 md:gap-2 lg:gap-4 px-2 md:px-3 lg:px-4 lg:pb-12 w-screen h-screen;
 
     .disclaimer {
       @apply flex justify-center pt-0 text-xs scale-75 md:scale-90 lg:scale-100 opacity-40;
@@ -11,7 +11,7 @@
 
   .ChatArea {
     @apply flex-grow bg-dark-1-300 rounded overflow-y-scroll overflow-x-hidden
-    flex flex-col gap-2 px-1.5 py-2 md:p-2;
+    flex flex-col gap-3 px-1.5 py-2 md:p-2;
   }
 
   .ChatPrompt {

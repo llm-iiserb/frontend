@@ -2,8 +2,8 @@
 
 @layer components {
   .ChatBox {
-    @apply text-justify px-2 md:px-4 lg:px-6 py-3 md:py-6
-        bg-dark-1-500 font-sans text-white rounded
+    @apply text-justify px-2 md:px-4 lg:px-6 py-1.5 md:py-3
+        font-sans text-white rounded text-sm
         flex flex-col gap-4;
 
     .content {
@@ -19,6 +19,7 @@
         @apply border-b-[1px] hover:border-b-2 text-secondary-1-400 font-semibold transition-all duration-200;
       }
     }
+
     .Feedback {
       ul {
         @apply flex justify-end lg:justify-start gap-2 lg:gap-3;
@@ -44,37 +45,38 @@
   }
 
   .ChatBox.user {
-    @apply text-lg text-primary-1-900 font-semibold
-    border-l-4 border-l-primary-1-600;
+    @apply text-2xl md:text-3xl text-primary-1-900 font-semibold
+    /* border-l-2 border-l-primary-1-600; */
   }
 
   .ChatBox.agent {
-    @apply border-l-4 border-l-secondary-1-500 mb-2;
+    @apply border-b-2 border-secondary-1-500 mb-10;
 
     .sources {
-      @apply p-1 md:p-3 flex flex-col justify-center gap-3 rounded bg-dark-1-400;
+      @apply p-1 md:p-3 flex flex-col justify-center gap-3 rounded;
 
       .title {
         @apply hidden text-left text-lg md:text-xl lg:text-2xl font-serif text-light-1 font-bold;
       }
 
       ul.badges {
-        @apply grid grid-cols-1 px-0 md:px-3 md:grid-cols-2 lg:grid-cols-3 place-items-start md:place-items-center gap-1 md:gap-2 lg:gap-3;
+        @apply flex gap-2 overflow-scroll;
 
         li {
-          @apply flex flex-col justify-start items-center p-0;
+          @apply flex flex-col justify-center items-center p-0;
 
           .SourceBadge {
-            @apply px-2 py-3 rounded-md border-dark-1-700
-            flex flex-col gap-1 items-center
-            bg-dark-1-500 hover:bg-dark-1-200 transition-all duration-200;
+            @apply px-4 py-1 rounded-md border-dark-1-500
+            flex flex-col gap-2 items-center border-[1px]
+            transition-all duration-200
+            cursor-pointer;
 
             .icon {
               @apply text-lg;
             }
 
             .filename {
-              @apply text-xs text-light-2 font-mono;
+              @apply text-xs text-light-2 opacity-60 font-mono;
             }
 
             .chunk {

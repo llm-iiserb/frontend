@@ -6,7 +6,7 @@ type ServerStatus = {
 };
 
 const useServerStatus = create<ServerStatus>((set) => ({
-  active: false,
+  active: true,
   setActive: (active: boolean) => set({ active }),
 }));
 
