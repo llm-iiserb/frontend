@@ -45,8 +45,8 @@
   }
 
   .ChatBox.user {
-    @apply text-2xl md:text-3xl text-primary-1-900 font-semibold
-    /* border-l-2 border-l-primary-1-600; */
+    @apply text-2xl md:text-2xl lg:text-3xl text-primary-1-900
+    font-extrabold font-mono;
   }
 
   .ChatBox.agent {
@@ -66,10 +66,14 @@
           @apply flex flex-col justify-center items-center p-0;
 
           .SourceBadge {
-            @apply px-4 py-1 rounded-md border-dark-1-500
+            @apply px-1.5 py-1.5 rounded-lg border-dark-1-500
             flex flex-col gap-2 items-center border-[1px]
-            transition-all duration-200
-            cursor-pointer;
+            transition-all duration-200;
+
+            &::-webkit-scrollbar,
+            & > *::-webkit-scrollbar {
+              @apply hidden;
+            }
 
             .icon {
               @apply text-lg;
@@ -81,10 +85,10 @@
 
             .chunk {
               @apply text-sm h-24 overflow-y-scroll text-light-1 font-mono p-2 my-3 rounded border-[0px]  transition-all duration-200;
-              &.show{
-                @apply h-32 opacity-100 text-opacity-100 ;
+              &.show {
+                @apply h-32 opacity-100 text-opacity-100;
               }
-              &.hide{
+              &.hide {
                 @apply h-0 p-0 m-0 opacity-0 text-opacity-0;
               }
             }
