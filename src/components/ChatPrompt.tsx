@@ -7,14 +7,16 @@ import generateResponse from "../data/generateResponse";
 import { nanoid } from "nanoid";
 
 const randomQuestions = [
-  "Hostel leave",
+  "Hostel leave procedure",
   "FAAC Scheme for conference travel grant",
   "Hostel Rules",
   "How many Overload Courses can I take?",
-  "Departmental electives",
   "Substituting failed courses",
-  "The DoSA/DoAA/DUGC/DPGC",
-  "Attendance criteria",
+  "Counselling session booking",
+  "Internal Complaints Committee",
+  "SAC Constitution",
+  "Registering MAC address",
+  "How to connect to IISER VPN"
 ];
 
 const ChatPrompt: React.FC = () => {

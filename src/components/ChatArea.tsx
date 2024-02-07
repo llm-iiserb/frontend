@@ -29,16 +29,17 @@ const ChatArea: React.FC = () => {
         </>
       ) : (
         <div className="text-gray-500">
-          All answers are sourced from:
+          Ask questions from:
           {/* create a list CSS styled with bullet points*/}
           <ul style={{ listStyleType: "square", marginLeft: "1rem" }}>
+            <li> Emergency Contact Numbers (Health, Fire, Security, Emergency) </li>
             <li> Student Manual (DoSA Office, 2023) </li>
-            <li> Academic Manual (DoAA Office, 2020) </li>
-            <li> PG Manual (DoAA Office, 2020) </li>
-            <li> UG Manual (DoAA Office, 2020) </li>
-            <li> Course Contents of Natural Sciences (DoAA Office, 2013) </li>
-            <li> Internet Connectivity FAQ (Computer Centre, 2023) </li>
-            <li> Internet Connectivity Manual (Computer Centre, 2023) </li>
+            <li> Academic, PG, UG Manual (DoAA Office, 2020) </li>
+            <li> Course Contents of Natural Sciences up till 2013(DoAA Office, 2013) </li>
+            <li> Internet Connectivity FAQ, Manual (Computer Centre, 2023) </li>
+            <li> Counselling Session FAQ, Manual </li>
+            <li> SAC Constitution </li>
+            <li> ICC complaint registration </li>
           </ul>
         </div>
       )}

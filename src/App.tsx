@@ -49,7 +49,7 @@ const App: React.FC = () => {
           console.error(`Error checking server status`);
           serverStatus.setActive(false);
         });
-    }, 1000);
+    }, 10000);
 
     console.log(auth.currentUser);
 
