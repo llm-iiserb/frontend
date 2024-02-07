@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import ChatArea from "./components/ChatArea";
 import ChatPrompt from "./components/ChatPrompt";
-import { auth } from "./firebase";
+import app, { auth } from "./firebase";
 
 import NoAuth from "./components/NoAuth";
 import Header from "./components/Header";
 import useMessageStore from "./data/messages";
 import useServerStatus from "./data/health";
-import isServerActive from "./utils/health";
+// import isServerActive from "./utils/health";
 
 import ServerError from "./components/ServerError";
-import { HttpStatusCode } from "axios";
+// import { HttpStatusCode } from "axios";
+import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
 const App: React.FC = () => {
   const [showUI, setShowUI] = useState(false);
@@ -30,31 +31,18 @@ const App: React.FC = () => {
       }
     });
 
-    // Checks for server status every 10s
-    const healthChecker = setInterval(async () => {
-      // const active = await isServerActive();
-      // console.log(`Server active = ${active}`);
-      // serverStatus.setActive(active || false);
-      // // serverStatus.setActive(false);
-      const isActive = isServerActive();
-      isActive
-        .then((res) => {
-          if (res.status === HttpStatusCode.Ok) {
-            serverStatus.setActive(true);
-          } else {
-            serverStatus.setActive(false);
-          }
-        })
-        .catch(() => {
-          console.error(`Error checking server status`);
-          serverStatus.setActive(false);
-        });
-    }, 30000);
+    const unsub = onSnapshot(
+      doc(getFirestore(app), "server", "status"),
+      (doc) => {
+        console.log("Current data: ", doc.data());
+        serverStatus.setActive(doc.data()?.active || false);
+      }
+    );
 
     console.log(auth.currentUser);
 
     return () => {
-      clearInterval(healthChecker);
+      unsub();
     };
   }, []);
 
