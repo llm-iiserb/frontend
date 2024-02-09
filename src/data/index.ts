@@ -1,4 +1,4 @@
-export const URL = "https://deciding-seahorse-discrete.ngrok-free.app";
+export const URL = "http://203.18.51.89:80:5000";
 
 /**
  * Creates a backend endpoint URL based on the slug passed
