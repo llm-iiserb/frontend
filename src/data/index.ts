@@ -1,4 +1,4 @@
-export const URL = "http://203.18.51.89:80:5000";
+export const URL = "https://qna.iiserb.ac.in";
 
 /**
  * Creates a backend endpoint URL based on the slug passed
