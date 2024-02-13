@@ -7,8 +7,8 @@ const generateResponse = async (
   question: string,
   messages: Message[]
 ): Promise<{ chatId: string; response: string; sources: ResponseSource[] }> => {
-  const url = "https://qna.iiserb.ac.in";
-  //const url = "https://deciding-seahorse-discrete.ngrok-free.app";
+  // const url = "https://qna.iiserb.ac.in";
+  const url = "https://deciding-seahorse-discrete.ngrok-free.app";
   const { displayName: name, email } = auth.currentUser!;
   var history: { question: string; answer: string }[] = [];
   for (var i = 0; i < messages.length; i++) {
